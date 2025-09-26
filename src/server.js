@@ -7,6 +7,7 @@ import path,  {dirname} from 'path'
 import { fileURLToPath } from 'url'
 import authRoutes from './routes/authRoutes.js'
 import todoRoutes from './routes/todoRoutes.js'
+import authMiddleWare from './middleware/authMiddleware.js'
 
 
 
@@ -31,7 +32,7 @@ app.use(express.static(path.join(__dirname, '../public')))
 
 //routes
 app.use('/auth', authRoutes)
-app.use('/todos', todoRoutes)
+app.use('/todos', authMiddleWare, todoRoutes)
 
 
 
