@@ -4,27 +4,60 @@ GET  http://localhost:5003
 
 
 
-###
+### Create a new user
 POST http://localhost:5003/auth/register
 Content-Type:  application/json
 
 
 
 {
-    "username" : "Chinedu",
+    "username" : "chiscookeke",
     "password" : "Okeke"
 }
 
 
 
-###
+### login the user
 POST http://localhost:5003/auth/login
 Content-Type:  application/json
 
 {
-    "username" : "Chinedu",
+    "username" : "chiscookeke",
     "password" : "Okeke"
 }
 
+
+
+### Fetch all the todos GET /Todos (protected)
+GET  http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU5MjkzMjYwLCJleHAiOjE3NTkzNzk2NjB9.LxNM34H7OFvbGAP3hkLG7pMes7C-TDGkiOZ-AQx83GQ
+
+
+### create a new todo
+POST http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU5MjkzMjYwLCJleHAiOjE3NTkzNzk2NjB9.LxNM34H7OFvbGAP3hkLG7pMes7C-TDGkiOZ-AQx83GQ
+Content-Type: application/json
+
+{
+    "task": "Finish coding the projects"
+}
+
+
+###update a todo PUT /Todos/:ID (protected)
+PUT  http://localhost:5003/todos/2?page=4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU5MjkzMjYwLCJleHAiOjE3NTkzNzk2NjB9.LxNM34H7OFvbGAP3hkLG7pMes7C-TDGkiOZ-AQx83GQ
+Content-Type: application/json
+
+{
+    "completed": 1,
+    "task" : "Ate Eggroll"
+}
+
+
+
+### Delete a todo from the /Todo/:ID (protected)
+DELETE   http://localhost:5003/todos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzU5MjkzMjYwLCJleHAiOjE3NTkzNzk2NjB9.LxNM34H7OFvbGAP3hkLG7pMes7C-TDGkiOZ-AQx83GQ
+Content-Type: application/json
 
 
